@@ -1,0 +1,455 @@
+body {
+  background: linear-gradient(to right, #F4512C, #5E1B89);
+  min-height: 100vh;
+  margin: 0;
+}
+
+.to-do-list {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 100px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  font-size: 4rem;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  text-shadow: 
+    2px 2px 0px #ff6b6b,
+    4px 4px 0px #4834d4;
+  position: relative;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 4px;
+  background: linear-gradient(to right, 
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,1) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  border-radius: 2px;
+}
+
+/* Rest of your existing CSS stays the same */
+button {
+  font-size: 1.7rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-button {
+  background-color: green;
+}
+
+.add-button:hover {
+  background-color: darkgreen;
+}
+
+.delete-button {
+  background-color: red;
+}
+
+.delete-button:hover {
+  background-color: darkred;
+}
+
+.move-button {
+  background-color: blue;
+}
+
+.move-button:hover {
+  background-color: darkblue;
+}
+
+.edit-button {
+  background-color: #f0ad4e;
+}
+
+.edit-button:hover {
+  background-color: #ec971f;
+}
+
+.save-button {
+  background-color: #5cb85c;
+}
+
+.save-button:hover {
+  background-color: #449d44;
+}
+
+input[type="text"] {
+  font-size: 1.6rem;
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 5px;
+  color: black;
+}
+
+ol {
+  padding: 0;
+}
+
+li {
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 15px;
+  background-color: white;
+  margin-bottom: 10px;
+  border: 3px solid black;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text {
+  flex: 1;
+  text-align: left;
+}
+
+.status-box {
+  width: 25px;
+  height: 25px;
+  border: 2px solid black;
+  margin-right: 15px;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+
+.delete-button, .move-button, .edit-button {
+  padding: 8px 12px;
+  font-size: 1.4rem;
+  margin-left: 10px;
+}
+
+.edit-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 10px;
+  flex: 1;
+}
+
+.edit-panel input,
+.edit-panel textarea {
+  font-size: 1.4rem;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.edit-panel textarea {
+  height: 60px;
+  resize: vertical;
+}
+
+.task-time {
+  font-size: 1.4rem;
+  color: #666;
+  margin-top: 5px;
+}
+
+.task-notes {
+  font-size: 1.2rem;
+  color: #777;
+  margin-top: 5px;
+  font-style: italic;
+}
+
+.priority-pin {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  padding: 5px;
+  cursor: pointer;
+  opacity: 0.3;
+  transition: all 0.3s ease;
+  transform: rotate(45deg);
+}
+
+.priority-pin:hover {
+  opacity: 0.8;
+}
+
+.priority-pin.pinned {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.priority-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.4rem;
+  margin-top: 5px;
+}
+
+.priority-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+
+.tasks-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.priority-section, .regular-section {
+  width: 100%;
+}
+
+h2 {
+  font-family: 'Roboto Slab', serif;
+  font-size: 2rem;
+  color: white;
+  text-align: left;
+  margin-bottom: 15px;
+  padding-left: 10px;
+}
+
+.priority-pin {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  padding: 5px;
+  cursor: pointer;
+  opacity: 0.3;
+  transition: all 0.3s ease;
+  transform: rotate(45deg);
+}
+
+.priority-pin:hover {
+  opacity: 0.8;
+}
+
+.priority-pin.pinned {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.priority-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.4rem;
+  margin-top: 5px;
+}
+
+.priority-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+
+.priority-section ol {
+  margin-bottom: 0;
+}
+
+.regular-section {
+  margin-top: 0;
+}
+
+.delete-all-button {
+  background-color: red; /* Dark Red */
+  margin-left: 10px;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.delete-all-button:hover {
+  background-color: darkred; /* Tomato Red */
+}
+
+.done-all-button {
+  background-color: green; /* Medium Spring Green */
+  margin-left: 10px;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.done-all-button:hover {
+  background-color: darkgreen; /* Lime Green */
+}
+
+/* Show Calendar Button */
+.calendar-toggle-button {
+  background-color: #5E1B89; /* Purple */
+  margin-left: 10px;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.calendar-toggle-button:hover {
+  background-color: #F4512C; /* Orange on hover */
+}
+
+/* Calendar Container */
+.react-calendar {
+  width: 100%;
+  max-width: 1000px; /* Increased width */
+  background: #fff;
+  border: 2px solid #5E1B89;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+  line-height: 1.125em;
+  margin: 50px auto;
+  padding: 10px;
+}
+
+/* Calendar Navigation */
+.react-calendar__navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #5E1B89;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.react-calendar__navigation button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.react-calendar__navigation button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.react-calendar__navigation button:hover:not(:disabled) {
+  color: #F4512C;
+}
+
+/* Calendar Month View */
+.react-calendar__month-view__weekdays {
+  text-align: center;
+  color: #5E1B89;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.react-calendar__month-view__days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.react-calendar__tile {
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  font-size: 1rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background: #F4512C;
+  color: white;
+}
+
+.react-calendar__tile--now {
+  background: #5E1B89;
+  color: white;
+}
+
+.react-calendar__tile--active {
+  background: #F4512C;
+  color: white;
+}
+
+/* Calendar Task Styling */
+.calendar-task {
+  font-size: 0.6rem;
+  color: #333;
+  background-color: #f0f0f0;
+  padding: 2px 5px;
+  border-radius: 3px;
+  margin: 2px 0;
+}
+
+/* Task Type Select */
+.task-type-select {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.task-type-select label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.task-type-select input[type="radio"] {
+  width: 18px;
+  height: 18px;
+}
+
+.task-type {
+  font-size: 1rem;
+  color: #5E1B89;
+  margin-top: 5px;
+  font-style: italic;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+  opacity: 0.7; /* Optional: Reduce opacity for completed tasks */
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.logo {
+  width: 250px; /* Adjust size as needed */
+  height: auto;
+}
